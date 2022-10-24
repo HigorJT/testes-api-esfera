@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 
-import naturalPerson from '../api/login/naturalPerson/request.js'
-import legalPerson from '../api/login/legalPerson/request.js'
+import naturalPerson from '../api/login/PF/request.js'
+import legalPerson from '../api/login/PJ/request.js'
 
 describe('testando a rota de login', () => {
     it.only('Pessoa Física', () => {
