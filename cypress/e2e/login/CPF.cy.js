@@ -4,9 +4,9 @@ import { successfulRequest, badRequest, unauthorizedRequest } from '../../api/lo
 
 describe('Testando a rota de login com CPF', () => {
     it('Successful Request', () => {
-        const propertys = ['access_token', 'expires_in', 'refresh_expires_in', 'refresh_token', 'token_type', 'scope', 'user_hash']
-
         successfulRequest().should((res) => {
+            const propertys = Object.keys(res.body)
+
             expect(res.status).to.eq(200)
 
             propertys.forEach(el => {
@@ -14,12 +14,12 @@ describe('Testando a rota de login com CPF', () => {
                 expect(res.body[el]).not.null
             })
         })
-    }) 
+    })
 
     it('Bad Request', () => {
-        const propertys = [['errorCode', '400'], ['errorMessage', 'Input data is missing or is incorrect. Invalid grant_type!']]
-
         badRequest().should((res) => {
+            const propertys = Object.entries(res.body)
+
             expect(res.status).to.eq(400)
 
             propertys.forEach(el => {
@@ -30,9 +30,9 @@ describe('Testando a rota de login com CPF', () => {
     })
 
     it('Unauthorized Request', () => {
-        const propertys = [['errorCode', '401'], ['errorMessage', 'Unauthorized']]
-
         unauthorizedRequest().should((res) => {
+            const propertys = Object.entries(res.body)
+
             expect(res.status).to.eq(401)
 
             propertys.forEach(el => {
