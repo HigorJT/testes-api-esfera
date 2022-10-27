@@ -24,3 +24,21 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+Cypress.Commands.add('setToken', (username) => {
+    return cy.api({
+        method: 'POST',
+        url: '/auth/oauth2/v1/apptoken',
+        failOnStatusCode: false,
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'x-deviceid': 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX',
+        },
+        body: {
+            grant_type: 'password',
+            client_id: 'esfera-ios',
+            username,
+            password: '135790',
+            encrypted: false,
+        },
+    }).then(res => Cypress.env('token', res.body.access_token))
+})
