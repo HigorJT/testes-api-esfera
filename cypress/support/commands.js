@@ -24,11 +24,3 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('setDeviceId', (userName) => {
-    cy.api({
-        method: 'GET',
-        url: `http://173.208.128.106:9876/device/${userName}`
-    }).then(response => {
-        Cypress.env('deviceId', response.body)
-    })
-})
