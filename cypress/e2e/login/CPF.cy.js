@@ -4,7 +4,7 @@ import { successfulRequest, badRequest, unauthorizedRequest } from '../../api/lo
 
 describe('Testando a rota de login com CPF', () => {
     it('Successful Request', () => {
-        successfulRequest().should((res) => {
+        successfulRequest().should(res => {
             const propertys = Object.keys(res.body)
 
             expect(res.status).to.eq(200)
@@ -17,7 +17,7 @@ describe('Testando a rota de login com CPF', () => {
     })
 
     it('Bad Request', () => {
-        badRequest().should((res) => {
+        badRequest().should(res => {
             const propertys = Object.entries(res.body)
 
             expect(res.status).to.eq(400)
@@ -30,7 +30,7 @@ describe('Testando a rota de login com CPF', () => {
     })
 
     it('Unauthorized Request', () => {
-        unauthorizedRequest().should((res) => {
+        unauthorizedRequest().should(res => {
             const propertys = Object.entries(res.body)
 
             expect(res.status).to.eq(401)
