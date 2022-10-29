@@ -42,3 +42,15 @@ Cypress.Commands.add('setToken', (username) => {
         },
     }).then(res => Cypress.env('token', res.body.access_token))
 })
+
+Cypress.Commands.add('setCardId', () => {
+    return cy.api({
+        method: 'GET',
+        url: '/app/v1/service/cards',
+        failOnStatusCode: false,
+        headers: {
+                    'Authorization': `Bearer ${Cypress.env('token')}`,
+                    'X-DeviceId': 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'
+                }
+    }).then(res => Cypress.env('cardId',res.body.cards[0].card_id))
+})
