@@ -1,17 +1,33 @@
 /// <reference types="Cypress" />
 
-import { successfulDataMass } from './payload.js'
+import { successfulDataMass, badDataMass, unauthorizedDataMass } from './payload.js'
 
 const url = '/app/v1/service/cards'
 const method = 'GET'
 
-export const successfulRequest = (token) => {
-    cy.log(successfulDataMass(token))
-
+export const successfulRequest = () => {
     return cy.api({
         method,
         url,
         failOnStatusCode: false,
-        headers: successfulDataMass(token)
+        headers: successfulDataMass()
+    })
+}
+
+export const badRequest = () => {
+    return cy.api({
+        method,
+        url,
+        failOnStatusCode: false,
+        headers: badDataMass()
+    })
+}
+
+export const unauthorizedRequest = () => {
+    return cy.api({
+        method,
+        url,
+        failOnStatusCode: false,
+        headers: unauthorizedDataMass
     })
 }
