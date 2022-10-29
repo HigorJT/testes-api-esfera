@@ -4,9 +4,9 @@ import { successfulRequest, badRequest, unauthorizedRequest } from '../../api/lo
 
 describe('Testando a rota de login com CPF', () => {
     it('Successful Request', () => {
-        successfulRequest().should(res => {
-            const propertys = Object.keys(res.body)
+        const propertys = ['errorCode', 'errorMessage', 'contacts']
 
+        successfulRequest().then(res => {
             expect(res.status).to.eq(200)
 
             propertys.forEach(el => {
@@ -17,9 +17,9 @@ describe('Testando a rota de login com CPF', () => {
     })
 
     it('Bad Request', () => {
-        badRequest().should(res => {
-            const propertys = Object.entries(res.body)
+        const propertys = [['errorCode', '400'], ['errorMessage', 'Input data is missing or is incorrect. Invalid client_id!']]
 
+        badRequest().then(res => {
             expect(res.status).to.eq(400)
 
             propertys.forEach(el => {
@@ -30,9 +30,9 @@ describe('Testando a rota de login com CPF', () => {
     })
 
     it('Unauthorized Request', () => {
-        unauthorizedRequest().should(res => {
-            const propertys = Object.entries(res.body)
+        const propertys = [['errorCode', '401'], ['errorMessage', 'Unauthorized']]
 
+        unauthorizedRequest().then(res => {
             expect(res.status).to.eq(401)
 
             propertys.forEach(el => {
