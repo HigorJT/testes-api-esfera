@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-import { successfulRequest, badRequest, unauthorizedRequest } from '../../api/cards/DELETECards/request'
+import { successfulRequest, badRequest, unauthorizedRequest } from '../../api/cards/DELETECard/request.js'
 
 describe('Testando a rota de DELETE Cards', () => {
     before(() => {

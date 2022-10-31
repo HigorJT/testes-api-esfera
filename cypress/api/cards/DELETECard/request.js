@@ -10,7 +10,7 @@ export const successfulRequest = () => {
         method,
         url: `${url}/${Cypress.env('cardId')}`,
         failOnStatusCode: false,
-        headers: successfulDataMass()
+        headers: successfulDataMass
     })
 }
 
@@ -19,7 +19,7 @@ export const badRequest = () => {
         method,
         url: `${url}/xablau`,
         failOnStatusCode: false,
-        headers: badDataMass()
+        headers: badDataMass
     })
 }
 

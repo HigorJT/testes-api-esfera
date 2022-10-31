@@ -10,7 +10,7 @@ export const successfulRequest = () => {
         method,
         url,
         failOnStatusCode: false,
-        headers: successfulDataMass()
+        headers: successfulDataMass
     })
 }
 
@@ -19,7 +19,7 @@ export const badRequest = () => {
         method,
         url,
         failOnStatusCode: false,
-        headers: badDataMass()
+        headers: badDataMass
     })
 }
 

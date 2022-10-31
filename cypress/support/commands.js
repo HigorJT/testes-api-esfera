@@ -52,5 +52,5 @@ Cypress.Commands.add('setCardId', () => {
                     'Authorization': `Bearer ${Cypress.env('token')}`,
                     'X-DeviceId': 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'
                 }
-    }).then(res => Cypress.env('cardId',res.body.cards[0].card_id))
+    }).then(res => Cypress.env('cardId', res.body.cards[0].card_id))
 })
