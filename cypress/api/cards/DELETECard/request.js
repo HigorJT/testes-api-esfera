@@ -10,16 +10,16 @@ export const successfulRequest = () => {
         method,
         url: `${url}/${Cypress.env('cardId')}`,
         failOnStatusCode: false,
-        headers: successfulDataMass
+        headers: successfulDataMass(Cypress.env('token'))
     })
 }
 
 export const badRequest = () => {
     return cy.api({
         method,
-        url: `${url}/xablau`,
+        url: `${url}/uriInvalido`,
         failOnStatusCode: false,
-        headers: badDataMass
+        headers: badDataMass(Cypress.env('token'))
     })
 }
 
@@ -28,6 +28,6 @@ export const unauthorizedRequest = () => {
         method,
         url,
         failOnStatusCode: false,
-        headers: unauthorizedDataMass
+        headers: unauthorizedDataMass('token invalido')
     })
 }

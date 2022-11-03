@@ -28,6 +28,6 @@ export const unauthorizedRequest = () => {
         method,
         url,
         failOnStatusCode: false,
-        headers: unauthorizedDataMass
+        headers: unauthorizedDataMass('token invalido')
     })
 }
