@@ -16,7 +16,7 @@ Today we've 7 of 43 endpoints covered.
 - Arthur de Castro - QA Developer 
 - Nayane Moraes - QA Developer 
 - Jonatas Passos - QA Developer
-- Higor Torrs - QA Develper
+- Higor Torres - QA Develper
 
 ## Technology
 * Cypress 10.11
